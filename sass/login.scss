@@ -1,9 +1,52 @@
-#u {
+#ut {
     li {
         font-size: 12px;
-        margin: 10px;
+        margin: 15px 15px 0;
     }
     span {
-        font-size: 14px;
+        color: white;
+        margin-top: 10px;
     }
+}
+
+#ub {
+    li {
+        font-size: 12px;
+        margin: 15px;
+    }
+    span {
+        color: white;
+        margin-top: 10px;
+    }
+}
+
+#duanxin {
+    height: 26px;
+    line-height: 26px;
+    text-align: right;
+    a {
+        color: #666;
+        background: url('../dist/img/xuebitu.png') -9999px -9999px no-repeat;
+    }
+}
+
+// 邮箱登录
+#email_login {
+    padding: 0;
+    width: 365px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+//电话登录
+#phone_login {
+    padding-left: 20px;
+    width: 365px;
+    display: none;
+}
+
+#phone-login {
+    color: #ccc;
 }
