@@ -168,6 +168,10 @@
         .lb {
             left: 14px;
         }
+        
+        a:hover {
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -195,7 +199,9 @@
                     <button type="button" class="btn btn-primary btn-lg col-sm-10" id="btn">登 &nbsp;录</button>
                     <div class="container" id="fg">
                         <div class="col-sm-6" id="fg1">忘记密码</div>
-                        <div class="col-sm-6" id="fg2">邮箱注册</div>
+                        <div class="col-sm-6" id="fg2">
+                            <a href="./registered.html">邮箱注册</a>
+                        </div>
                     </div>
                 </div>
                 <!-- 手机号注册 -->
@@ -271,6 +277,15 @@
         $('#email_login').hide()
         $('#phone_login').show()
 
+    })
+
+    $('#btn').on('click', function() {
+        $.get('http://jx.xuzhixiang.top/ap/api/login.php', {
+            username: 'email',
+            password: 'password'
+        }, data => {
+            console.log(data);
+        })
     })
 </script>
 

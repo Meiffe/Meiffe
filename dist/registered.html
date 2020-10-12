@@ -11,6 +11,7 @@
     <![endif]-->
     <title>网易邮箱注册</title>
     <link rel="icon" href="https://webzj.netstatic.net/naqfav.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./sass/registered.scss">
     <script src="./js/jquery.1.11.3.js"></script>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script src="./js/bootstrap.js"></script>
@@ -112,6 +113,10 @@
             color: #2c82ff;
         }
         
+        a:hover {
+            text-decoration: none;
+        }
+        
         p {
             margin-top: 10px;
         }
@@ -147,7 +152,19 @@
             margin: 10px 40px;
         }
         
-        .number {
+        .number2 {
+            margin: 5px 20px;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        
+        .number3 {
             margin: 5px 20px;
             width: 45px;
             height: 45px;
@@ -168,12 +185,33 @@
             font-size: 18px;
             font-weight: bold;
             text-align: center;
-            border: 1px solid #2c82ff;
+            border: 2px solid #2c82ff;
         }
         
         .stepcurrent {
             color: #2c82ff;
             font-weight: 700;
+        }
+        
+        #p1 {
+            color: red;
+            margin: 0;
+            list-style: none;
+        }
+        
+        #p2 {
+            color: red;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .box3 {
+            width: 444px;
+            margin-bottom: 100px;
+        }
+        
+        #wor {
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -197,57 +235,74 @@
         <div class="st w">
             <div class="step stepcurrent">
                 <div class="number1">1</div>
-                <div class="line"></div>
                 <div>填写账号密码</div>
             </div>
             <div class="step">
-                <div class="number">2</div>
-                <div class="line"></div>
+                <div class="number2">2</div>
                 <div>验证手机号码</div>
-
             </div>
             <div class="step">
-                <div class="number">3</div>
-                <div class="line"></div>
+                <div class="number3">3</div>
                 <div>完成注册</div>
             </div>
         </div>
+
         <div class="box2">
             <form>
                 <div class="form-group">
 
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入邮箱地址">
+                    <div id="p1"></div>
                 </div>
-                <div class="form-group">
 
+                <div class="form-group">
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入8-16位密码">
+                    <p id="p2"></p>
                 </div>
+
 
                 <div class="checkbox">
                     <label>
-          <input type="checkbox"> 用户勾选即代表同意<a href="">《网易邮箱服务条款》</a>和<a href="">《网易隐私政策》</a>
-        </label>
+                        <input type="checkbox" id="cbx"> 用户勾选即代表同意<a href="">《网易邮箱服务条款》</a>和<a href="">《网易隐私政策》</a>
+                    </label>
                 </div>
-                <button type="button" class="btn btn-primary">下一步</button>
+                <button type="button" class="btn btn-primary" id="tj">下一步</button>
 
                 <p>已有账号？<a href="./login.html">去登陆</a></p>
 
             </form>
         </div>
 
+        <div class="box3 center-block hidden">
+            <div class="row" id="wor">
+                <p>为了确保帐号安全，您的手机号码将作为该帐号的安全手机。安全手机可用于找回密码、修改密保等操作。</p>
+            </div>
+            <div class="row" id="wor">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">+86</span>
+                    <input type="text" class="form-control" placeholder="请输入手机号" aria-describedby="basic-addon1" id="uesr_phone">
+                    <p id="p3"></p>
+                </div>
+            </div>
+            <div class="row" id="wor">
+                <button type="button" class="btn btn-primary">验证手机号</button>
+            </div>
+
+        </div>
+
     </div>
     <div class="container">
         <div class="u-link">
-            <a href="http://gb.corp.163.com/gb/about/overview.html" target="_blank">公司简介</a>&nbsp;<span class="span3">|</span>&nbsp;
-            <a href="https://id.163.com" target="_blank">网易账号中心</a>&nbsp;<span class="span3">|</span>&nbsp;
-            <a href="https://reg.163.com/yixin/caipiaoact.do#from=ursdlq" target="_blank">账号中心公众号</a>&nbsp;<span class="span3">|</span>&nbsp;
-            <a href="https://id.163.com/gj/?from=new_aq" target="_blank">网易账号管家</a>&nbsp;<span class="span3">|</span>&nbsp;
-            <a href="https://haoma.163.com/" target="_blank">网易靓号</a>&nbsp;<span class="span3">|</span>&nbsp;
-            <a href="https://hc.reg.163.com/webcomponentH5/index.html?from=urs_h5" target="_blank">网易帮助中心</a>
+            <a href="#">公司简介</a>&nbsp;<span class="span3">|</span>&nbsp;
+            <a href="#">网易账号中心</a>&nbsp;<span class="span3">|</span>&nbsp;
+            <a href="#">账号中心公众号</a>&nbsp;<span class="span3">|</span>&nbsp;
+            <a href="#">网易账号管家</a>&nbsp;<span class="span3">|</span>&nbsp;
+            <a href="#">网易靓号</a>&nbsp;<span class="span3">|</span>&nbsp;
+            <a href="#">网易帮助中心</a>
         </div>
         <div class="u-link">
-            <a target="_blank" href="http://cms-bucket.ws.126.net/2019/05/30/f0b8f62f908a411e944aa93f0727272d.jpeg">增值电信业务经营许可证粤B2-20090191</a>&nbsp;&nbsp;
-            <a target="_blank" href="http://www.beian.miit.gov.cn/">工业和信息化部ICP/IP地址/域名信息备案管理系统</a>
+            <a href="#">增值电信业务经营许可证粤B2-20090191</a>&nbsp;&nbsp;
+            <a href="#">工业和信息化部ICP/IP地址/域名信息备案管理系统</a>
         </div>
         <div class="u-link">
             网易公司版权所有 © 1997-2020
@@ -257,7 +312,7 @@
 <script>
     var user_email = /^[A-Za-z]\w{5,17}@(vip\.(126|163|188)\.com|163\.com|126\.com|yeach\.net)/;
     var user_password = /^[a-z0-9_-]{6,18}$/;
-
+    var uesrPhone = /^1[0-9]{10}$/;
 
 
     $('#exampleInputEmail1').bind('change', 'click', function() {
@@ -267,24 +322,81 @@
             $('#exampleInputEmail1').css('border-color', '#ccc')
             $('.stepcurrent').css('color', '#2c82ff')
             $('.number1').css('border-color', '#2c82ff')
+            $('.number1').html('1')
+            $('#p1').html('')
         } else {
             $('#exampleInputEmail1').css('border-color', 'red')
             $('.stepcurrent').css('color', 'red')
-            $('.number1').css('border-color', 'red')
+            $('.number1').css('border-color', 'red').html('!')
+            $('#p1').html('帐号须由6-18个字符组成')
         }
 
     })
-    $('#exampleInputPassword1').bind('change', function() {
+
+    $('#exampleInputPassword1').bind('change', 'click', function() {
 
         var password = $('#exampleInputPassword1').val();
-        if (user_password.test(password) || (passwor == '')) {
+        if (user_password.test(password) || (password == '')) {
             $('#exampleInputPassword1').css('border-color', '#ccc')
             $('.stepcurrent').css('color', '#2c82ff')
             $('.number1').css('border-color', '#2c82ff')
+            $('.number1').html('1')
+            $('#p2').html('')
         } else {
             $('#exampleInputPassword1').css('border-color', 'red')
             $('.stepcurrent').css('color', 'red')
-            $('.number1').css('border-color', 'red')
+            $('.number1').css('border-color', 'red').html('!')
+            $('#p2').html('请输入8-16位密码')
+        }
+    })
+
+
+    $('#tj').on('click', function() {
+        var cb = $('#cbx').prop('checked')
+        if (cb) {
+            $.get('http://jx.xuzhixiang.top/ap/api/reg.php', {
+                username: 'email',
+                password: 'password'
+            }, data => {
+                console.log(data);
+            })
+
+            $('.box2').hide()
+            $('.box3').removeClass('hidden')
+            $('.number1').html('√')
+            $('.number1').css({
+                'background': '#2c82ff',
+                'color': 'white'
+            })
+            $('.number2').css({
+                'border-color': '#2c82ff',
+                'border-width': '2px',
+                'color': '#2c82ff'
+            }).next().css({
+                'color': '#2c82ff',
+                'font-weight': 'bold'
+            })
+        } else {
+            alert('请勾选协议！')
+        }
+
+    })
+
+
+    $('#user_phone').bind('change', 'click', function() {
+        var phone = $('#user_phone').val();
+
+        if (uesrPhone.test(phone) || (phone == '')) {
+            $('#user_phone').css('border-color', '#ccc')
+            $('.number2').css('border-color', '#2c82ff')
+            $('.number2').html('2')
+            $('#p3').html('')
+
+        } else {
+            $('#user_phone').css('border-color', 'red')
+            $('.number2').css('border-color', 'red')
+            $('.number2').html('!')
+            $('#p3').html('请输入正确的手机号')
         }
     })
 </script>
