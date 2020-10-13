@@ -10,55 +10,344 @@
       <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
     <![endif]-->
     <title>网易暴雪周边商城_中国授权商城_魔兽世界_星际争霸2_暗黑3产品</title>
-
     <link rel="icon" href="https://webzj.netstatic.net/naqfav.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/swiper-bundle.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./sass/index.scss">
-    <script src="./js/bootstrap.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./dist/css/index.css">
     <style>
         body {
             padding: 0;
+            margin: 0;
+            background: url('./img/index_background.png') repeat 0 0;
         }
         
         ul,
         li {
             list-style: none;
+            color: #7f93a9;
         }
         
         a:hover {
             text-decoration: none;
         }
+        /* footer */
         
-        #lr li {
-            float: left;
+        .footer {
+            margin-top: 100px;
+            height: 300px;
+            background: #1a1a1a;
+            color: #a6a6a6;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        #f {
+            width: 1090px;
+            margin: 80px 0 0;
+            display: inline-block;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #2c2c2c;
+        }
+        
+        #f1 {
+            height: 51px;
+            padding-left: 80px;
+            color: white;
+            font-size: 16px;
+            line-height: 51px;
+            text-align: left;
+            background: url('./img/1.png') no-repeat 0 0;
+        }
+        
+        #f2 {
+            line-height: 51px;
+            padding-left: 80px;
+            height: 51px;
+            color: white;
+            text-align: left;
+            font-size: 16px;
+            background: url('./img/2.png') no-repeat 0 0;
+        }
+        
+        #f3 {
+            height: 51px;
+            padding-left: 80px;
+            line-height: 51px;
+            color: white;
+            text-align: left;
+            font-size: 16px;
+            background: url('./img/3.png') no-repeat 0 0;
+        }
+        
+        #f4 {
+            height: 51px;
+            padding-left: 80px;
+            line-height: 51px;
+            color: white;
+            text-align: left;
+            font-size: 16px;
+            background: url('./img/4.png') no-repeat 0 0;
         }
     </style>
 </head>
 
 <body>
     <footer>
-        <div class="container" id="head">
-            <div class="col-lg-8 ">
-                <div class="col-lg-6">中国大陆暴雪授权周边商场　<a href="#"><span class="iconfont icon-laba"></span> 更多优惠周边 ></a>
+        <div id="header-t">
+            <div class="container" id="head-left">
+                <div class="col-lg-8 ">
+                    <div class="col-lg-8">中国大陆暴雪授权周边商场　<a href="#"><span class="iconfont icon-laba"></span> 更多优惠周边 ></a>
+                    </div>
+
                 </div>
+                <div class="col-lg-4" id="head-right">
+                    <ul id="lr">
+                        <li>　　　　　　　　　　登录</li>
+                        <li>　|</li>
+                        <li>　注册</li>
+                        <li>　|</li>
+                        <li>　客户服务</li>
+                        <li>　<span class="iconfont icon-jiantoushang">　</span></li>
+                        <li>|</li>
+                    </ul>
 
-            </div>
-            <div class="col-lg-4 ">
-                <ul id="lr">
-                    <li>登录</li>
-                    <li>　|</li>
-                    <li>　注册</li>
-                    <li>　|</li>
-                    <li>　客户服务</li>
-                    <li>　<span class="iconfont icon-jiantoushang">　</span></li>
-                    <li>|</li>
-                </ul>
-
+                </div>
             </div>
         </div>
+        <div id="header-m">
+            <div class="container">
+                <div class="col-lg-8"><img src="./img/index_logo.png" alt=""></div>
+                <div class="col-lg-4" id="header-m-r">
+                    <input placeholder="请输入搜索内容" value=""> <span class="iconfont icon-fangdajing"></span> <span class="iconfont icon-dilanxianxingiconyihuifu_huabanfuben"></span>
+                </div>
+            </div>
+        </div>
+        <div id="header-b">
+            <div class="container">
+                <ul>
+                    <li>首页</li>
+                    <li>居家生活</li>
+                    <li>手办模型</li>
+                    <li>数码外设</li>
+                    <li>佩饰挂件</li>
+                    <li>服装服饰</li>
+                    <li>图书文具</li>
+                </ul>
+            </div>
+
+        </div>
     </footer>
+    <main id="main">
+        <div class="swiper-container" id="swiper1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./img/lunbo1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/lunbo2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/lunbo3.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/lunbo4.jpg" alt=""></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <div class="main_img clearfix">
+            <ul>
+                <li><img src="./img/main_1.png" alt=""></li>
+                <li><img src="./img/main_2.png" alt=""></li>
+                <li><img src="./img/main_3.png" alt=""></li>
+                <li><img src="./img/main_4.png" alt=""></li>
+                <li><img src="./img/main_1.png" alt=""></li>
+                <li><img src="./img/main_2.png" alt=""></li>
+                <li><img src="./img/main_3.png" alt=""></li>
+                <li><img src="./img/main_4.png" alt=""></li>
+            </ul>
+        </div>
+        <!-- 人气销售 -->
+        <div class="main_rq clearfix">
+            <div class="row">
+                <span class="iconfont icon-dianzan"></span>
+                <p>人气热销</p>
+            </div>
+            <div class="row" id="hot">
+                <span class="left-main">
+                  <img src="./img/rq_1.jpg" alt="">
+                  <span class="left">魔兽世界 9.0暗影国度鼠标垫</span>
+                </span>
+                <span class="right-sub">
+                  <img src="./img/rq_2.jpg" alt="">
+                </span>
+                <span class="right-sub">
+                  <img src="./img/rq_3.jpg" alt="">
+                </span>
+                <span class="right-sub">
+                  <img src="./img/rq_4.jpg" alt="">
+                </span>
+                <span class="right-sub">
+                  <img src="./img/rq_5.jpg" alt="">
+                </span>
+            </div>
+        </div>
+        <!-- 最新周边 -->
+        <div class="main_zb clearfix">
+            <div class="row">
+                <span class="iconfont icon-dianzan"></span>
+                <p>最新周边</p>
+            </div>
+            <!-- 轮播图 -->
+            <div class="swiper-container" id="swiper2">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide"><img src="./img/zb_1.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/zb_2.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/zb_3.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/zb_4.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/zb_5.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/zb_6.jpg" alt=""></div>
+
+                </div>
+                <div class="swiper-button-next" id="btnr"></div>
+                <div class="swiper-button-prev" id="btnl"></div>
+            </div>
+
+        </div>
+        <!-- 居家生活 -->
+        <div class="main_jj clearfix">
+            <div class="row">
+                <span class="iconfont icon-dianzan"></span>
+                <p class="col-lg-1">居家生活</p>
+                <ul class="col-lg-8">
+                    <li>洗护</li>
+                    <li> 　/</li>
+                    <li>抱枕</li>
+                    <li> 　/</li>
+                    <li>床品</li>
+                    <li> 　/</li>
+                    <li>收纳</li>
+                    <li> 　/</li>
+                    <li>拖鞋</li>
+                    <li>　 /</li>
+                    <li>水杯</li>
+                    <li> 　/</li>
+                    <li>家饰</li>
+                    <li> 　/</li>
+                    <li>箱包</li>
+                    <li> 　/</li>
+                    <li>食品</li>
+                    <li> 　/</li>
+                    <li>雨伞</li>
+                </ul>
+                <a href="#">查看更多</a>
+            </div>
+
+            <div class="row center-block" id="jj_img">
+                <img src="./img/jj_main.jpg" alt="">
+            </div>
+            <div class="row center-block">
+                <div class="swiper-container" id="swiper3">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="./img/jj_1.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/jj_2.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/jj_3.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/jj_4.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/jj_5.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./img/jj_6.png" alt=""></div>
+                    </div>
+                    <div class="swiper-button-next" id="btnr"></div>
+                    <div class="swiper-button-prev" id="btnl"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container" id="f">
+            <div class="col-sm-3" id="f1">正版周边</div>
+            <div class="col-sm-3" id="f2">7天无忧退货</div>
+            <div class="col-sm-3" id="f3">满99元免邮费</div>
+            <div class="col-sm-3" id="f4">网易自营电商</div>
+
+        </div>
+        <ul id="ut">
+            <li>公司简介</li>
+            <span>|</span>
+            <li>规则中心</li>
+            <span>|</span>
+            <li>售后服务</li>
+            <span>|</span>
+            <li>配送与验收</li>
+            <span>|</span>
+            <li>商务合作</li>
+            <span>|</span>
+            <li>相关法律</li>
+            <span>|</span>
+            <li>联系我们</li>
+            <span>|</span>
+            <li>加入我们</li>
+        </ul>
+        <ul id='ub'>
+            <li>食品经营许可证</li>
+            <span>|</span>
+            <li>出版物经营许可证</li>
+            <span>|</span>
+            <li>营业执照</li>
+            <span>|</span>
+            <li>网易公司版权所有 © 1997-2020 浙出发滨零字第0108号 统一社会信用代码:91330108691700232G</li>
+        </ul>
+    </div>
 </body>
+<script src="./js/jquery.1.11.3.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/swiper-bundle.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script>
+    var mySwiper1 = new Swiper('#swiper1', {
+        loop: true, // 循环模式选项
+        autoplay: {
+            delay: 2000, //2秒切换一次
+        },
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true,
+        },
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        }
+    })
+    var mySwiper2 = new Swiper('#swiper2', {
+        loop: true, // 循环模式选项
+        slidesPerView: 4,
+        spaceBetween: 10,
+        centeredSlides: false,
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        }
+    })
+    var mySwiper3 = new Swiper('#swiper3', {
+        loop: true, // 循环模式选项
+        slidesPerView: 4,
+        spaceBetween: 10,
+        centeredSlides: false,
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        }
+    })
+</script>
 
 </html>
