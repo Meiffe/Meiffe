@@ -166,17 +166,18 @@
             <li>魔兽争霸3</li>
             <li>暴雪游戏</li>
         </ul>
-        <div class="search-result">
-            <ul class="product-list">
-                <li>
-                    <img src="https://yanxuan-item.nosdn.127.net/778b48dba450e52e8b77b82340cafde0.png" alt="">
-                </li>
-            </ul>
-        </div>
-
-        </table>
     </div>
-
+    <div class="search-result container">
+        <ul class="product-list">
+            <!-- <li>
+                <img src="https://yanxuan-item.nosdn.127.net/778b48dba450e52e8b77b82340cafde0.png" alt="">
+                <span class="prod-info">部落 马克杯 魔兽世界</span>
+                <span class="price-info normal">
+                <span class="label">商城价：</span><span class="price">￥69.00</span>
+                </span> 
+            </li> -->
+        </ul>
+    </div>
     <div class="container" id="main_b">
         <div colspan="4" id="td1">
             <p>客户服务</p>
@@ -241,6 +242,10 @@
         </ul>
     </div>
 </body>
+<script src="./js/jquery.1.11.3.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/swiper-bundle.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 <script>
     if (localStorage.getItem('login') == 1) {
         $('#login_user>span').removeClass('hidden')
@@ -252,11 +257,31 @@
         $('#login_user>a').html(localStorage.getItem('username'))
         $('#login_dingdan>a').html('我的订单')
     }
-    var
+    //取数据
+    $.get('http://jx.xuzhixiang.top/ap/api/productlist.php', {
+        uid: '43413'
+    }, data => {
+        console.log(data);
+
+        var str = '';
+        for (let i = 0; i < data.data.length; i++) {
+            let picstr = data.data[i].pimg;
+            let picarr = picstr.split(',');
+            console.log(picarr[0]);
+            console.log(data.data[i]);
+            str += `
+             <li>
+                <img src=${picarr[0]} alt="">
+                <span class="prod-info">${data.data[i].pname}</span>
+                <span class="price-info normal">
+                <span class="label">商城价：</span><span class="price">${data.data[i].pprice}</span>
+                </span> 
+            </li>
+            `
+        }
+        $('.product-list').html(str);
+    })
 </script>
-<script src="./js/jquery.1.11.3.js"></script>
-<script src="./js/bootstrap.js"></script>
-<script src="./js/swiper-bundle.js"></script>
-<script src="./js/bootstrap.min.js"></script>
+
 
 </html>

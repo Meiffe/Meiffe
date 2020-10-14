@@ -372,28 +372,39 @@
     $('#tj').on('click', function() {
         var cb = $('#cbx').prop('checked')
         if (cb) {
+
             $.get('http://jx.xuzhixiang.top/ap/api/reg.php', {
                 username: $('#exampleInputEmail1').val(),
                 password: $('#exampleInputPassword1').val(),
             }, data => {
                 console.log(data);
+                if (data.code == 1) {
+                    $('.box2').hide()
+                    $('.box3').removeClass('hidden')
+                    $('.number1').html('√')
+                    $('.number1').css({
+                        'background': '#2c82ff',
+                        'color': 'white',
+                        'border-color': '#2c82ff',
+                    })
+                    $('.stepcurrent').css('color', '#2c82ff')
+                    $('.number2').css({
+                        'border-color': '#2c82ff',
+                        'border-width': '2px',
+                        'color': '#2c82ff'
+                    }).next().css({
+                        'color': '#2c82ff',
+                        'font-weight': 'bold'
+                    })
+
+                } else {
+                    alert(data.msg);
+                    $('.stepcurrent').css('color', 'red')
+                    $('.number1').css('border-color', 'red').html('!')
+                }
             })
 
-            $('.box2').hide()
-            $('.box3').removeClass('hidden')
-            $('.number1').html('√')
-            $('.number1').css({
-                'background': '#2c82ff',
-                'color': 'white'
-            })
-            $('.number2').css({
-                'border-color': '#2c82ff',
-                'border-width': '2px',
-                'color': '#2c82ff'
-            }).next().css({
-                'color': '#2c82ff',
-                'font-weight': 'bold'
-            })
+
         } else {
             alert('请勾选协议！')
         }
@@ -425,20 +436,27 @@
             password: $('#exampleInputPassword1').val(),
         }, data => {
             console.log(data);
+            if (data.code == 1) {
+                $('.box3').hide()
+                $('.box4').removeClass('hidden')
+                $('.stepcurrent3 > div').css('color', '#2c82ff')
+                $('.number3').css('border-color', '#2c82ff')
+                $('.number3').next('div').css('font-weight', 'bold')
+                var phone = $('#user_phone').val();
+                if (uesrPhone.test(phone)) {
+                    $(function() {
+                        setTimeout(function() {
+                            window.location.href = 'index.html'
+                        }, 2000);
+                    });
+                }
+            } else {
+                alert('该手机号已注册');
+            }
+
         })
-        $('.box3').hide()
-        $('.box4').removeClass('hidden')
-        $('.stepcurrent3 > div').css('color', '#2c82ff')
-        $('.number3').css('border-color', '#2c82ff')
-        $('.number3').next('div').css('font-weight', 'bold')
-        var phone = $('#user_phone').val();
-        if (uesrPhone.test(phone)) {
-            $(function() {
-                setTimeout(function() {
-                    window.location.href = 'index.html'
-                }, 2000);
-            });
-        }
+
+
     })
 </script>
 

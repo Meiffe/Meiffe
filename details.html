@@ -15,11 +15,21 @@
     <link rel="stylesheet" href="./css/swiper-bundle.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./dist/css/shopcart.css">
+    <link rel="stylesheet" href="./dist/css/details.css">
     <style>
         body {
             padding: 0;
             margin: 0;
             background: url('./img/index_background.png') repeat 0 0;
+            font: 14px Century Gothic, Futura, sans-serif;
+            font-family: Microsoft YaHei;
+            color: #333;
+        }
+        
+        .container {
+            width: 1090px;
+            margin: 0 auto;
+            padding: 0;
         }
         
         ul,
@@ -94,6 +104,11 @@
             font-size: 16px;
             background: url('./img/4.png') no-repeat 0 0;
         }
+        
+        #nav_ul {
+            width: 1090px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <!-- header -->
@@ -154,36 +169,60 @@
         </div>
     </div>
     <div class="container" id="main_m">
-        <table class="table">
-            <thead>
-                <tr>
-                    <td><a href="#">全部</a></td>
-                    <td>魔兽世界</td>
-                    <td>守望先锋</td>
-                    <td>炉石传说</td>
-                    <td>暗黑破坏神</td>
-                    <td>星际争霸2</td>
-                    <td>风暴英雄</td>
-                    <td>魔兽争霸3</td>
-                    <td>暴雪游戏</td>
-                </tr>
-                <tr class="active">
-                    <td><a href="">最新</a></td>
-                    <td>销量</td>
-                    <td>价格</td>
-                    <td colspan="5">
-                        <input type="text" value="￥"></input>　-　<input type="text" value="￥"></input>
-                    </td>
-                    <td><button type="button" class="btn btn-info">确定</button></td>
-                </tr>
-            </thead>
-            <div class="search-result">
-                <ul class="product-list">
-
+        <div class="images">
+            <div class="bigImage"><img src="https://yanxuan-item.nosdn.127.net/433a4f5b99ce8bac67571daee43c7206.png" alt=""></div>
+            <div class="smallImages">
+                <div class="scrollUp"></div>
+                <ul class="imageMenu">
+                    <li><img src="https://yanxuan-item.nosdn.127.net/433a4f5b99ce8bac67571daee43c7206.png"></li>
+                    <li><img src="https://yanxuan-item.nosdn.127.net/b03043622884008e72c66d281d9a4068.png"></li>
+                    <li><img src="https://yanxuan-item.nosdn.127.net/19809ddb7b882294255e9ea630b3f339.jpg"></li>
                 </ul>
+                <div class="scrollDown"></div>
             </div>
-
-        </table>
+        </div>
+        <div class="info">
+            <div class="desc">
+                <div class="pName infoDev"><span>魔兽世界 巫妖王头盔抱枕</span></div>
+                <div class="pDesc infoDev"><span>1</span></div>
+                <div class="pSale infoDev">
+                    <div class="infoDev"><span>售价：</span><span class="price"><span class="price-rmb">￥</span><span class="price-num">98.00</span></span>
+                    </div>
+                    <div class="service infoDev">
+                        <div class="label-div"><span class="label">服务：</span></div>
+                        <div class="services">
+                            <div class="serviceItem"><span>･ </span><span>全场满99包邮</span><span>  </span></div>
+                            <div class="serviceItem"><span>･ </span><span>部分地区无法配送</span><span>  </span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="specs infoDev">
+                    <div class="specLabel"><span>材质:</span></div>
+                    <div class="specBlocks">
+                        <ul>
+                            <li class="active">
+                                <div class="specBlock"><a><span>聚酯纤维</span></a><span class="icon"></span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="num specs infoDev">
+                    <div class="specLabel"><span>数量：</span></div>
+                    <div class="specBlocks">
+                        <div class="number-input"><span class="choose-number"><a class="oper oper-minus disable" href="javascript:void(0);" title="减1"><i class="fa minus" aria-hidden="true"></i></a><input id="numText" type="text" class="text" maxlength="6" title="请输入购买量" value="1"><a class="oper oper-plus" href="javascript:void(0);" title="加1"><i class="fa plus" aria-hidden="true"></i></a></span></div>
+                    </div>
+                </div>
+                <div class="action infoDev">
+                    <div class="btns"><a class="commonBtn"><span>立即购买</span></a><a class="commonBtn2"><span>加入购物车</span></a></div>
+                    <div class="collect">
+                        <div class="top"><span class=""></span></div>
+                        <div class="down"><span>收藏</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="container" id="main_b">
