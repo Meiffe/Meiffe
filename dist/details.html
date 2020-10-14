@@ -36,6 +36,7 @@
         li {
             list-style: none;
             color: #7f93a9;
+            display: inline-block;
         }
         
         a:hover {
@@ -122,11 +123,11 @@
             </div>
             <div class="col-lg-4" id="head-right">
                 <ul id="lr">
-                    <li>　　　　　　　　　　登录</li>
+                    <li id="login_user">　　<span class="iconfont icon-ren hidden"></span> <a href="./login.html"> 登录</a></li>
                     <li>　|</li>
-                    <li>　注册</li>
+                    <li id="login_dingdan">　<a href="./registered.html">注册</a></li>
                     <li>　|</li>
-                    <li>　客户服务</li>
+                    <li>　<a href="#">退出登录</a></li>
                     <li>　<span class="iconfont icon-jiantoushang">　</span></li>
                     <li>|</li>
                 </ul>
@@ -183,10 +184,10 @@
         </div>
         <div class="info">
             <div class="desc">
-                <div class="pName infoDev"><span>魔兽世界 巫妖王头盔抱枕</span></div>
+                <div class="pName infoDev"><span id="shop_name">魔兽世界 巫妖王头盔抱枕</span></div>
                 <div class="pDesc infoDev"><span>1</span></div>
                 <div class="pSale infoDev">
-                    <div class="infoDev"><span>售价：</span><span class="price"><span class="price-rmb">￥</span><span class="price-num">98.00</span></span>
+                    <div class="infoDev"><span>售价：</span><span class="price"><span class="price-rmb">￥</span><span class="price-num" id="shop_price">98.00</span></span>
                     </div>
                     <div class="service infoDev">
                         <div class="label-div"><span class="label">服务：</span></div>
@@ -198,16 +199,6 @@
                 </div>
             </div>
             <div class="actions">
-                <div class="specs infoDev">
-                    <div class="specLabel"><span>材质:</span></div>
-                    <div class="specBlocks">
-                        <ul>
-                            <li class="active">
-                                <div class="specBlock"><a><span>聚酯纤维</span></a><span class="icon"></span></div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="num specs infoDev">
                     <div class="specLabel"><span>数量：</span></div>
                     <div class="specBlocks">
@@ -289,6 +280,10 @@
         </ul>
     </div>
 </body>
+<script src="./js/jquery.1.11.3.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/swiper-bundle.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 <script>
     if (localStorage.getItem('login') == 1) {
         $('#login_user>span').removeClass('hidden')
@@ -300,11 +295,20 @@
         $('#login_user>a').html(localStorage.getItem('username'))
         $('#login_dingdan>a').html('我的订单')
     }
-    var
+
+
+    $(function() {
+        var pid = location.search.replace('?', '');
+        $.get(`http://jx.xuzhixiang.top/ap/api/detail.php?id=${pid}`, data => {
+            var picstr = data.data['pimg'];
+            var picarr = picstr.split(',');
+            console.log(picstr, picarr);
+            $('#shop_name').text(data.data['pname'])
+            $('#shop_price').text(data.data['pprice'])
+            $('.bigImage').find('img').attr('src', picarr[0]);
+            $('.imageMenu').find('img').attr('src', picarr[0]);
+        })
+    })
 </script>
-<script src="./js/jquery.1.11.3.js"></script>
-<script src="./js/bootstrap.js"></script>
-<script src="./js/swiper-bundle.js"></script>
-<script src="./js/bootstrap.min.js"></script>
 
 </html>

@@ -108,11 +108,11 @@
             </div>
             <div class="col-lg-4" id="head-right">
                 <ul id="lr">
-                    <li>　　　　　　　　　　登录</li>
+                    <li id="login_user">　　<span class="iconfont icon-ren hidden"></span> <a href="./login.html"> 登录</a></li>
                     <li>　|</li>
-                    <li>　注册</li>
+                    <li id="login_dingdan">　<a href="./registered.html">注册</a></li>
                     <li>　|</li>
-                    <li>　客户服务</li>
+                    <li>　<a href="#">退出登录</a></li>
                     <li>　<span class="iconfont icon-jiantoushang">　</span></li>
                     <li>|</li>
                 </ul>
@@ -271,11 +271,13 @@
             console.log(data.data[i]);
             str += `
              <li>
+                <a href="http://127.0.0.1:5500/wangyi/details.html?${data.data[i].pid}">
                 <img src=${picarr[0]} alt="">
                 <span class="prod-info">${data.data[i].pname}</span>
                 <span class="price-info normal">
                 <span class="label">商城价：</span><span class="price">${data.data[i].pprice}</span>
                 </span> 
+                </a>
             </li>
             `
         }
