@@ -9,7 +9,7 @@
       <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
     <![endif]-->
-    <title>网易暴雪周边商城_中国授权商城_魔兽世界_星际争霸2_暗黑3产品</title>
+    <title>网易暴雪周边商城登录</title>
 
     <link rel="icon" href="https://webzj.netstatic.net/naqfav.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/login.css">
@@ -73,6 +73,11 @@
             padding-left: 40px;
         }
         
+        #user_phone {
+            background: url('./img/bgc登录.png') no-repeat 0 -5px;
+            padding-left: 40px;
+        }
+        
         .t {
             margin-top: 10px;
         }
@@ -88,6 +93,13 @@
         }
         
         #btn {
+            background: #00aeff;
+            border: 0;
+            border-radius: 0;
+            margin: 20px auto;
+        }
+        
+        #btn2 {
             background: #00aeff;
             border: 0;
             border-radius: 0;
@@ -210,13 +222,12 @@
                         <a href="#">使用短信验证登录</a>
                     </div>
                     <div class="col-sm-11 t">
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入手机号">
+                        <input type="text" class="form-control" id="user_phone" placeholder="请输入手机号">
                     </div>
                     <div class="col-sm-11 t">
-
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码">
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg col-sm-10 lb" id="btn">登 &nbsp;录</button>
+                    <button type="button" class="btn btn-primary btn-lg col-sm-10 lb" id="btn2">登 &nbsp;录</button>
                     <div class="row" id="fg">
                         <div class="col-sm-6" id="fg1">遇到问题</div>
                         <div class="col-sm-6" id="fg2">手机号注册</div>
@@ -281,9 +292,35 @@
 
     $('#btn').on('click', function() {
         $.get('http://jx.xuzhixiang.top/ap/api/login.php', {
-            username: 'email',
-            password: 'password'
+            username: $('#exampleInputEmail1').val(),
+            password: $('#exampleInputPassword1').val()
         }, data => {
+            if (data.code == 1 && $('#exampleInputEmail1').val() != '') {
+                localStorage.setItem('username', data.data['username']);
+                localStorage.setItem('UID', data.data['id']);
+                localStorage.setItem('login', '1');
+                // window.location.href = 'index.html'
+            } else {
+                alert('请检查用户名密码')
+                $('#exampleInputPassword1').val('');
+            }
+            console.log(data);
+        })
+    })
+    $('#btn2').on('click', function() {
+        $.get('http://jx.xuzhixiang.top/ap/api/login.php', {
+            username: $('#user_phone').val(),
+            password: $('#exampleInputPassword1').val()
+        }, data => {
+            if (data.code == 1 && $('#user_phone').val() != '') {
+                localStorage.setItem('username', data.data['uername']);
+                localStorage.setItem('UID', data.data['id']);
+                localStorage.setItem('login', '2');
+                //window.location.href = 'index.html'
+            } else {
+                alert('请检查用户名密码')
+                $('#exampleInputPassword1').val('');
+            }
             console.log(data);
         })
     })

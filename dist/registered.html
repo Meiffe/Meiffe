@@ -205,13 +205,29 @@
             list-style: none;
         }
         
+        #p3 {
+            color: red;
+            margin: 0;
+            list-style: none;
+        }
+        
         .box3 {
             width: 444px;
             margin-bottom: 100px;
         }
         
+        .box4 {
+            height: 400px;
+            font-size: 40px;
+            text-align: center;
+        }
+        
         #wor {
             margin-top: 40px;
+        }
+        
+        #user_phone {
+            width: 470px;
         }
     </style>
 </head>
@@ -237,11 +253,11 @@
                 <div class="number1">1</div>
                 <div>填写账号密码</div>
             </div>
-            <div class="step">
+            <div class="step stepcurrent2">
                 <div class="number2">2</div>
                 <div>验证手机号码</div>
             </div>
-            <div class="step">
+            <div class="step stepcurrent3">
                 <div class="number3">3</div>
                 <div>完成注册</div>
             </div>
@@ -272,22 +288,24 @@
 
             </form>
         </div>
-
+        <!-- 第二步 -->
         <div class="box3 center-block hidden">
             <div class="row" id="wor">
                 <p>为了确保帐号安全，您的手机号码将作为该帐号的安全手机。安全手机可用于找回密码、修改密保等操作。</p>
             </div>
             <div class="row" id="wor">
                 <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">+86</span>
-                    <input type="text" class="form-control" placeholder="请输入手机号" aria-describedby="basic-addon1" id="uesr_phone">
+                    <input type="text" class="form-control" placeholder="请输入手机号" id="user_phone">
                     <p id="p3"></p>
                 </div>
             </div>
             <div class="row" id="wor">
-                <button type="button" class="btn btn-primary">验证手机号</button>
+                <button type="button" class="btn btn-primary" id="yz">验证手机号</button>
             </div>
-
+        </div>
+        <!-- 第三步 -->
+        <div class="box4 center-block hidden">
+            <p>恭喜您完成注册，即将跳转登录页面，请稍等....</p>
         </div>
 
     </div>
@@ -318,7 +336,7 @@
     $('#exampleInputEmail1').bind('change', 'click', function() {
 
         var email = $('#exampleInputEmail1').val();
-        if (user_email.test(email) || (email == '')) {
+        if (user_email.test(email)) {
             $('#exampleInputEmail1').css('border-color', '#ccc')
             $('.stepcurrent').css('color', '#2c82ff')
             $('.number1').css('border-color', '#2c82ff')
@@ -336,7 +354,7 @@
     $('#exampleInputPassword1').bind('change', 'click', function() {
 
         var password = $('#exampleInputPassword1').val();
-        if (user_password.test(password) || (password == '')) {
+        if (user_password.test(password)) {
             $('#exampleInputPassword1').css('border-color', '#ccc')
             $('.stepcurrent').css('color', '#2c82ff')
             $('.number1').css('border-color', '#2c82ff')
@@ -355,8 +373,8 @@
         var cb = $('#cbx').prop('checked')
         if (cb) {
             $.get('http://jx.xuzhixiang.top/ap/api/reg.php', {
-                username: 'email',
-                password: 'password'
+                username: $('#exampleInputEmail1').val(),
+                password: $('#exampleInputPassword1').val(),
             }, data => {
                 console.log(data);
             })
@@ -381,22 +399,45 @@
         }
 
     })
-
+    console.log($('#user_phone'));
 
     $('#user_phone').bind('change', 'click', function() {
         var phone = $('#user_phone').val();
-
-        if (uesrPhone.test(phone) || (phone == '')) {
+        if (uesrPhone.test(phone)) {
             $('#user_phone').css('border-color', '#ccc')
+            $('.stepcurrent2 > div').css('color', '#2c82ff')
             $('.number2').css('border-color', '#2c82ff')
             $('.number2').html('2')
             $('#p3').html('')
-
         } else {
             $('#user_phone').css('border-color', 'red')
+            $('.stepcurrent2 > div').css('color', 'red')
             $('.number2').css('border-color', 'red')
-            $('.number2').html('!')
+            $('.number2').html('!').css('color', 'red')
             $('#p3').html('请输入正确的手机号')
+            console.log(1);
+        }
+    })
+
+    $('#yz').on('click', function() {
+        $.get('http://jx.xuzhixiang.top/ap/api/reg.php', {
+            username: $('#user_phone').val(),
+            password: $('#exampleInputPassword1').val(),
+        }, data => {
+            console.log(data);
+        })
+        $('.box3').hide()
+        $('.box4').removeClass('hidden')
+        $('.stepcurrent3 > div').css('color', '#2c82ff')
+        $('.number3').css('border-color', '#2c82ff')
+        $('.number3').next('div').css('font-weight', 'bold')
+        var phone = $('#user_phone').val();
+        if (uesrPhone.test(phone)) {
+            $(function() {
+                setTimeout(function() {
+                    window.location.href = 'index.html'
+                }, 2000);
+            });
         }
     })
 </script>

@@ -10,19 +10,259 @@
       <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
     <![endif]-->
     <title>网易暴雪周边商城_中国授权商城_魔兽世界_星际争霸2_暗黑3产品</title>
-    <link rel="icon" href="https://webzj.netstatic.net/naqfav.ico" type="image/x-icon"> link rel="icon" href="https://webzj.netstatic.net/naqfav.ico" type="image/x-icon">
+    <link rel="icon" href="https://webzj.netstatic.net/naqfav.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/iconfont.css">
     <link rel="stylesheet" href="./css/swiper-bundle.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./dist/css/index.css">
+    <link rel="stylesheet" href="./dist/css/shopcart.css">
     <style>
-
+        body {
+            padding: 0;
+            margin: 0;
+            background: url('./img/index_background.png') repeat 0 0;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+            color: #7f93a9;
+        }
+        
+        a:hover {
+            text-decoration: none;
+        }
+        /* main */
+        
+        .product-list {
+            margin-top: 28px;
+            margin-bottom: 50px;
+        }
+        /* footer */
+        
+        .footer {
+            height: 300px;
+            background: #1a1a1a;
+            color: #a6a6a6;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        #f {
+            width: 1090px;
+            margin: 80px 0 0;
+            display: inline-block;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #2c2c2c;
+        }
+        
+        #f1 {
+            height: 51px;
+            padding-left: 80px;
+            color: white;
+            font-size: 16px;
+            line-height: 51px;
+            text-align: left;
+            background: url('./img/1.png') no-repeat 0 0;
+        }
+        
+        #f2 {
+            line-height: 51px;
+            padding-left: 80px;
+            height: 51px;
+            color: white;
+            text-align: left;
+            font-size: 16px;
+            background: url('./img/2.png') no-repeat 0 0;
+        }
+        
+        #f3 {
+            height: 51px;
+            padding-left: 80px;
+            line-height: 51px;
+            color: white;
+            text-align: left;
+            font-size: 16px;
+            background: url('./img/3.png') no-repeat 0 0;
+        }
+        
+        #f4 {
+            height: 51px;
+            padding-left: 80px;
+            line-height: 51px;
+            color: white;
+            text-align: left;
+            font-size: 16px;
+            background: url('./img/4.png') no-repeat 0 0;
+        }
     </style>
 </head>
+<!-- header -->
+<header>
+    <div id="header-t">
+        <div class="container" id="head-left">
+            <div class="col-lg-8 ">
+                <div class="col-lg-8">中国大陆暴雪授权周边商场　<a href="#"><span class="iconfont icon-laba"></span> 更多优惠周边 ></a>
+                </div>
+
+            </div>
+            <div class="col-lg-4" id="head-right">
+                <ul id="lr">
+                    <li>　　　　　　　　　　登录</li>
+                    <li>　|</li>
+                    <li>　注册</li>
+                    <li>　|</li>
+                    <li>　客户服务</li>
+                    <li>　<span class="iconfont icon-jiantoushang">　</span></li>
+                    <li>|</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div id="header-m">
+        <div class="container">
+            <div class="col-lg-8"><img src="./img/index_logo.png" alt=""></div>
+            <div class="col-lg-4" id="header-m-r">
+                <input placeholder="请输入搜索内容" value=""> <span class="iconfont icon-fangdajing"></span> <span class="iconfont icon-dilanxianxingiconyihuifu_huabanfuben"></span>
+            </div>
+        </div>
+    </div>
+    <div id="header-b">
+        <div class="container">
+            <ul>
+                <li>首页</li>
+                <li>居家生活</li>
+                <li>手办模型</li>
+                <li>数码外设</li>
+                <li>佩饰挂件</li>
+                <li>服装服饰</li>
+                <li>图书文具</li>
+            </ul>
+        </div>
+
+    </div>
+</header>
+<!-- main -->
+<div class="main">
+    <div class="container" id="main_t">
+        <div class="row">
+            <ul id="nav_ul">
+                <li>首页　</li>
+                <li>>　</li>
+                <li><a href="#">商品详情页</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container" id="main_m">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><a href="#">全部</a></td>
+                    <td>魔兽世界</td>
+                    <td>守望先锋</td>
+                    <td>炉石传说</td>
+                    <td>暗黑破坏神</td>
+                    <td>星际争霸2</td>
+                    <td>风暴英雄</td>
+                    <td>魔兽争霸3</td>
+                    <td>暴雪游戏</td>
+                </tr>
+                <tr class="active">
+                    <td><a href="">最新</a></td>
+                    <td>销量</td>
+                    <td>价格</td>
+                    <td colspan="5">
+                        <input type="text" value="￥"></input>　-　<input type="text" value="￥"></input>
+                    </td>
+                    <td><button type="button" class="btn btn-info">确定</button></td>
+                </tr>
+            </thead>
+            <div class="search-result">
+                <ul class="product-list">
+
+                </ul>
+            </div>
+
+        </table>
+    </div>
+
+    <div class="container" id="main_b">
+        <div colspan="4" id="td1">
+            <p>客户服务</p>
+            <div id="td1_a">
+                <span>
+                  <img src="./img/kefu.png" alt="">
+                  <p>在线客服</p>
+                </span>
+                <span>
+                  <img src="./img/fankui.png" alt=""> 
+                  <p>用户反馈</p> 
+                </span>
+
+            </div>
+        </div>
+        <div colspan="4" id="td2">
+            <p>网易暴雪周边商城</p>
+            <p>是网易旗下运营暴雪游戏周边产品的购物商城。秉承网易一贯的严谨态度，力求帮消费者引进、设计、制造优质的暴雪周边产品。</p>
+            <p>关注我们 <span class="iconfont icon-weixin"></span><span class="iconfont icon-weibo"></span></p>
+        </div>
+        <div colspan="4">
+            <img src="./img/car_logo.png" alt="">
+        </div>
+    </div>
+</div>
 
 <body>
-    123
+    <!-- footer -->
+    <div class="footer">
+        <div class="container" id="f">
+            <div class="col-sm-3" id="f1">正版周边</div>
+            <div class="col-sm-3" id="f2">7天无忧退货</div>
+            <div class="col-sm-3" id="f3">满99元免邮费</div>
+            <div class="col-sm-3" id="f4">网易自营电商</div>
+
+        </div>
+        <ul id="ut">
+            <li>公司简介</li>
+            <span>|</span>
+            <li>规则中心</li>
+            <span>|</span>
+            <li>售后服务</li>
+            <span>|</span>
+            <li>配送与验收</li>
+            <span>|</span>
+            <li>商务合作</li>
+            <span>|</span>
+            <li>相关法律</li>
+            <span>|</span>
+            <li>联系我们</li>
+            <span>|</span>
+            <li>加入我们</li>
+        </ul>
+        <ul id='ub'>
+            <li>食品经营许可证</li>
+            <span>|</span>
+            <li>出版物经营许可证</li>
+            <span>|</span>
+            <li>营业执照</li>
+            <span>|</span>
+            <li>网易公司版权所有 © 1997-2020 浙出发滨零字第0108号 统一社会信用代码:91330108691700232G</li>
+        </ul>
+    </div>
 </body>
+<script>
+    if (localStorage.getItem('login') == 1) {
+        $('#login_user>span').removeClass('hidden')
+        $('#login_user>a').html(localStorage.getItem('username'))
+        $('#login_dingdan>a').html('我的订单')
+    }
+    if (localStorage.getItem('login') == 2) {
+        $('#login_user>span').removeClass('hidden')
+        $('#login_user>a').html(localStorage.getItem('username'))
+        $('#login_dingdan>a').html('我的订单')
+    }
+    var
+</script>
 <script src="./js/jquery.1.11.3.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script src="./js/swiper-bundle.js"></script>

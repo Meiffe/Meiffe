@@ -152,21 +152,48 @@
             <thead>
                 <tr class="active">
                     <th><input type="checkbox"> <a href="#">全选</a></th>
-                    <th colspan="2">商品信息</th>
+                    <th colspan="2" class="sp_xinxi">商品信息</th>
                     <th>单价</th>
                     <th>数量</th>
                     <th>小计</th>
                     <th>活动</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="no-result">
+                <!-- <tr class="no-result">
                     <td colspan="9">
                         <img src="./img/car.png" alt="">
                         <p>购物车还是空的</p>
                     </td>
-                </tr>
+                </tr> -->
+                <td class="td-checbox"><input type="checkbox"></td>
+                <td class="prod-img"><img src="./img/shop_1.png" alt="商品图片"></td>
+                <td class="prod-info">
+                    <p>D.Va CBD手办 守望先锋</p>
+                    <span>D.VA</span>
+                </td>
+                <td class="unit-price">￥149.00</td>
+                <td class="num">
+                    <div>
+                        <span>-</span>
+                        <span>1</span>
+                        <span>+</span>
+                    </div>
+                </td>
+                <td class="price-total">￥149.00</td>
+                <td></td>
+                <td><img src="./img/delete.png" alt="删除"></td>
             </tbody>
+            <tr class="zj">
+                <td class="td-checbox"><input type="checkbox">已选<span>(1)</span></td>
+                <td colspan="2"><a href="#">批量删除</a></td>
+                <td>应付总额：</td>
+                <td>￥149.00</td>
+                <td>商品合计：</td>
+                <td>￥149.00</td>
+                <td><button type="button" class="btn btn-info">下单</button></td>
+            </tr>
         </table>
     </div>
 
@@ -174,10 +201,15 @@
         <div colspan="4" id="td1">
             <p>客户服务</p>
             <div id="td1_a">
-                <span class="iconfont icon-kefu"></span>
-                <a>在线客服</a>
-                <span class="iconfont icon-liuyan"></span>
-                <a>用户反馈</a>
+                <span>
+                  <img src="./img/kefu.png" alt="">
+                  <p>在线客服</p>
+                </span>
+                <span>
+                  <img src="./img/fankui.png" alt=""> 
+                  <p>用户反馈</p> 
+                </span>
+
             </div>
         </div>
         <div colspan="4" id="td2">
@@ -229,6 +261,18 @@
         </ul>
     </div>
 </body>
+<script>
+    if (localStorage.getItem('login') == 1) {
+        $('#login_user>span').removeClass('hidden')
+        $('#login_user>a').html(localStorage.getItem('username'))
+        $('#login_dingdan>a').html('我的订单')
+    }
+    if (localStorage.getItem('login') == 2) {
+        $('#login_user>span').removeClass('hidden')
+        $('#login_user>a').html(localStorage.getItem('username'))
+        $('#login_dingdan>a').html('我的订单')
+    }
+</script>
 <script src="./js/jquery.1.11.3.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script src="./js/swiper-bundle.js"></script>

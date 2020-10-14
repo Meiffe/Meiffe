@@ -93,7 +93,7 @@
 </head>
 
 <body>
-    <footer>
+    <header>
         <div id="header-t">
             <div class="container" id="head-left">
                 <div class="col-lg-8 ">
@@ -103,11 +103,11 @@
                 </div>
                 <div class="col-lg-4" id="head-right">
                     <ul id="lr">
-                        <li>　　　　　　　　　　登录</li>
+                        <li id="login_user">　　<span class="iconfont icon-ren hidden"></span> <a href="./login.html"> 登录</a></li>
                         <li>　|</li>
-                        <li>　注册</li>
+                        <li id="login_dingdan">　<a href="./registered.html">注册</a></li>
                         <li>　|</li>
-                        <li>　客户服务</li>
+                        <li>　<a href="#">客户服务</a></li>
                         <li>　<span class="iconfont icon-jiantoushang">　</span></li>
                         <li>|</li>
                     </ul>
@@ -137,7 +137,7 @@
             </div>
 
         </div>
-    </footer>
+    </header>
     <main id="main">
         <div class="swiper-container" id="swiper1">
             <div class="swiper-wrapper">
@@ -363,6 +363,16 @@
 <script src="./js/swiper-bundle.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script>
+    if (localStorage.getItem('login') == 1) {
+        $('#login_user>span').removeClass('hidden')
+        $('#login_user>a').html(localStorage.getItem('username'))
+        $('#login_dingdan>a').html('我的订单')
+    }
+    if (localStorage.getItem('login') == 2) {
+        $('#login_user>span').removeClass('hidden')
+        $('#login_user>a').html(localStorage.getItem('username'))
+        $('#login_dingdan>a').html('我的订单')
+    }
     var mySwiper1 = new Swiper('#swiper1', {
         loop: true, // 循环模式选项
         autoplay: {
