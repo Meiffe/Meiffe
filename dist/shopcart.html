@@ -322,9 +322,9 @@
                     <td class="unit-price">${'￥'+ pprice}</td>
                     <td class="num">
                         <div id='mun'>
-                            <span id='jian'>-</span>
+                            <span class='jian'>-</span>
                             <span>${data.data[i].pnum}</span>
-                            <span id='jia'>+</span>
+                            <span class='jia'>+</span>
                         </div>
                     </td>
                     <td class="price-total">${'￥'+ xjprice}</td>
@@ -340,28 +340,30 @@
         $('#tbody').html(str);
         $('#zongji1').html('￥' + zpprice)
         $('#zongji2').html('￥' + zpprice)
-
+            //删除
         $('.delete').on('click', function() {
-            window.location.href = `shopcart.html?id=${uId}`;
-            $.get(`http://jx.xuzhixiang.top/ap/api/cart-delete.php?uid=${uId}&pid=${pId}`, {
-                uid: uId,
-                pid: pId
-            }, data => {
-                console.log(data);
-            })
+                window.location.href = `shopcart.html?id=${uId}`;
+                $.get(`http://jx.xuzhixiang.top/ap/api/cart-delete.php?uid=${uId}&pid=${pId}`, {
+                    uid: uId,
+                    pid: pId
+                }, data => {
+                    console.log(data);
+                })
 
-        })
-        $('#jia').on('click', function() {
-            window.location.href = `shopcart.html?id=${uId}`;
-            $.get(`http://jx.xuzhixiang.top/ap/api/cart-update-num.php?uid=${uId}&pid=${pId}&pnum=${pNum}`, {
-                uid: uId,
-                pid: pId,
-                pnum: pNum += 1
-            }, data => {
-                console.log(data);
             })
-        })
-        $('#jian').on('click', function() {
+            //加
+        $('.jia').on('click', function() {
+                window.location.href = `shopcart.html?id=${uId}`;
+                $.get(`http://jx.xuzhixiang.top/ap/api/cart-update-num.php?uid=${uId}&pid=${pId}&pnum=${pNum}`, {
+                    uid: uId,
+                    pid: pId,
+                    pnum: pNum += 1
+                }, data => {
+                    console.log(data);
+                })
+            })
+            //减
+        $('.jian').on('click', function() {
             window.location.href = `shopcart.html?id=${uId}`;
             $.get(`http://jx.xuzhixiang.top/ap/api/cart-update-num.php?uid=${uId}&pid=${pId}&pnum=${pNum}`, {
                 uid: uId,

@@ -308,14 +308,13 @@
     //立即购买
     $('#buy_now').click(function() {
             if (localStorage.getItem('login') == 1 || localStorage.getItem('login') == 2) {
-                $(function() {
-                    var pid = location.search.replace('?', '');
-                    var uid = localStorage.getItem('UID')
-                    $.get(`http://jx.xuzhixiang.top/ap/api/add-product.php?uid=${uid}&pid=${pid}&pnum=1`, data => {
-                        console.log(data);
-                    })
+
+                var pid = location.search.replace('?', '');
+                var uid = localStorage.getItem('UID')
+                $.get(`http://jx.xuzhixiang.top/ap/api/add-product.php?uid=${uid}&pid=${pid}&pnum=1`, data => {
+                    console.log(data);
                 })
-                window.location.href = `shopcart.html?id=${uId}`;
+                window.location.href = `shopcart.html?uid=${uid}`;
             } else {
                 window.location.href = 'login.html'
             }
@@ -323,29 +322,26 @@
         //加入购物车
     $('#buy_wait').click(function() {
             if (localStorage.getItem('login') == 1 || localStorage.getItem('login') == 2) {
-                $(function() {
-                    var pid = location.search.replace('?', '');
-                    var uid = localStorage.getItem('UID')
-                    $.get(`http://jx.xuzhixiang.top/ap/api/add-product.php?uid=${uid}&pid=${pid}&pnum=1`, data => {
-                        console.log(data);
-                    })
+                var pid = location.search.replace('?', '');
+                var uid = localStorage.getItem('UID')
+                $.get(`http://jx.xuzhixiang.top/ap/api/add-product.php?uid=${uid}&pid=${pid}&pnum=1`, data => {
+                    console.log(data);
                 })
             } else {
                 window.location.href = 'login.html'
             }
         })
         //根据商品id跳转到详情页
-    $(function() {
-        var pid = location.search.replace('?', '');
-        $.get(`http://jx.xuzhixiang.top/ap/api/detail.php?id=${pid}`, data => {
-            var picstr = data.data['pimg'];
-            var picarr = picstr.split(',');
-            console.log(picstr, picarr);
-            $('#shop_name').text(data.data['pname'])
-            $('#shop_price').text(data.data['pprice'])
-            $('.bigImage').find('img').attr('src', picarr[0]);
-            $('.imageMenu').find('img').attr('src', picarr[0]);
-        })
+    var pid = location.search.replace('?', '');
+    $.get(`http://jx.xuzhixiang.top/ap/api/detail.php?id=${pid}`, data => {
+        console.log(data);
+        var picstr = data.data['pimg'];
+        var picarr = picstr.split(',');
+        console.log(picstr, picarr);
+        $('#shop_name').text(data.data['pname'])
+        $('#shop_price').text(data.data['pprice'])
+        $('.bigImage').find('img').attr('src', picarr[0]);
+        $('.imageMenu').find('img').attr('src', picarr[0]);
     })
 </script>
 
