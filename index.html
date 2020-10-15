@@ -97,21 +97,19 @@
         <div id="header-t">
             <div class="container" id="head-left">
                 <div class="col-lg-8 ">
-                    <div class="col-lg-8">中国大陆暴雪授权周边商场　<a href="#"><span class="iconfont icon-laba"></span> 更多优惠周边 ></a>
+                    <div class="col-lg-6">中国大陆暴雪授权周边商场　<a href="#"><span class="iconfont icon-laba"></span> 更多优惠周边 ></a>
                     </div>
-
                 </div>
                 <div class="col-lg-4" id="head-right">
                     <ul id="lr">
-                        <li id="login_user">　　<span class="iconfont icon-ren hidden"></span> <a href="./login.html"> 登录</a></li>
+                        <li id="login_user">　　　　　<span class="iconfont icon-ren hidden"></span> <a href="./login.html"> 登录</a></li>
+                        <li id="login_user_name" class="hidden"><a href="./login.html"> 登录</a></li>
                         <li>　|</li>
-                        <li id="login_dingdan">　<a href="./registered.html">注册</a></li>
+                        <li id="login_register">　<a href="./registered.html">注册</a></li>
+                        <li id="login_dingdan" class="hidden">　<a href="./registered.html">我的订单</a></li>
                         <li>　|</li>
                         <li>　<a href="" id="exit">退出登录</a></li>
-                        <li>　<span class="iconfont icon-jiantoushang">　</span></li>
-                        <li>|</li>
                     </ul>
-
                 </div>
             </div>
         </div>
@@ -121,14 +119,14 @@
                 <div class="col-lg-4" id="header-m-r">
                     <input placeholder="请输入搜索内容" value="">
                     <a href="list.html"><span class="iconfont icon-fangdajing"></span></a>
-                    <a href="shopcart.html"><span class="iconfont icon-dilanxianxingiconyihuifu_huabanfuben"></span></a>
+                    <a href="#" id="shopcart"><span class="iconfont icon-dilanxianxingiconyihuifu_huabanfuben"></span></a>
                 </div>
             </div>
         </div>
         <div id="header-b">
             <div class="container">
                 <ul>
-                    <li>首页</li>
+                    <li><a href="index.html" style="color: #cfd2d7;">首页</a></li>
                     <li>居家生活</li>
                     <li>手办模型</li>
                     <li>数码外设</li>
@@ -137,7 +135,6 @@
                     <li>图书文具</li>
                 </ul>
             </div>
-
         </div>
     </header>
     <main id="main">
@@ -179,7 +176,7 @@
                   <span class="left">魔兽世界 9.0暗影国度鼠标垫</span>
                 </span>
                 <span class="right-sub">
-                  <img src="./img/rq_2.jpg" alt="">
+                  <img src="http://dwz.date/cPCP" alt="">
                 </span>
                 <span class="right-sub">
                   <img src="./img/rq_3.jpg" alt="">
@@ -238,12 +235,10 @@
                         <a href="#" id="og">是时候展现英雄真正的实力</a><br>
                         <a href="#">￥49.00</a>
                     </div>
-
                 </div>
                 <div class="swiper-button-next" id="btnr"></div>
                 <div class="swiper-button-prev" id="btnl"></div>
             </div>
-
         </div>
         <!-- 居家生活 -->
         <div class="main_jj clearfix">
@@ -273,12 +268,10 @@
                 </ul>
                 <a href="#">查看更多</a>
             </div>
-
             <div class="row center-block" id="jj_img">
                 <img src="./img/jj_main.jpg" alt="">
             </div>
             <!-- 轮播 -->
-
             <div class="swiper-container center-block" id="swiper3">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -316,13 +309,8 @@
                 <div class="swiper-button-next" id="btnr"></div>
                 <div class="swiper-button-prev" id="btnl"></div>
             </div>
-
         </div>
-
-
     </main>
-
-
     <!-- footer -->
     <div class="footer">
         <div class="container" id="f">
@@ -365,15 +353,15 @@
 <script src="./js/swiper-bundle.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script>
-    if (localStorage.getItem('login') == 1) {
+    //判断用户是否登录
+    if (localStorage.getItem('login') == 1 || localStorage.getItem('login') == 2) {
         $('#login_user>span').removeClass('hidden')
-        $('#login_user>a').html(localStorage.getItem('username'))
-        $('#login_dingdan>a').html('我的订单')
-    }
-    if (localStorage.getItem('login') == 2) {
-        $('#login_user>span').removeClass('hidden')
-        $('#login_user>a').html(localStorage.getItem('username'))
-        $('#login_dingdan>a').html('我的订单')
+        $('#login_dingdan').removeClass('hidden')
+        $('#login_user_name').removeClass('hidden')
+        $('#login_user>a').addClass('hidden')
+        $('#login_user_name>a').html(localStorage.getItem('username'))
+        $('#login_register').addClass('hidden')
+
     }
     //退出登录
     $('#exit').click(function() {
@@ -418,6 +406,22 @@
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
+        }
+    })
+
+    //查询用户购物车
+    $('#shopcart').click(function() {
+        if (localStorage.getItem('login') == 1 || localStorage.getItem('login') == 2) {
+
+            var uId = localStorage.getItem('UID')
+            $.get('http://jx.xuzhixiang.top/ap/api/cart-list.php', {
+                id: uId
+            }, data => {
+                console.log(data);
+                window.location.href = `shopcart.html?id=${uId}`;
+            })
+        } else {
+            window.location.href = 'login.html'
         }
     })
 </script>

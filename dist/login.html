@@ -299,7 +299,7 @@
                 localStorage.setItem('username', data.data['username']);
                 localStorage.setItem('UID', data.data['id']);
                 localStorage.setItem('login', '1');
-                window.location.href = 'index.html'
+                window.location.href = `index.html?username=${$('#exampleInputEmail1').val()}&password=${$('#exampleInputPassword1').val()}`
             } else {
                 alert('请检查用户名密码')
                 $('#exampleInputPassword1').val('');
@@ -316,7 +316,7 @@
                 localStorage.setItem('username', data.data['uername']);
                 localStorage.setItem('UID', data.data['id']);
                 localStorage.setItem('login', '2');
-                //window.location.href = 'index.html'
+                window.location.href = `index.html?username=${$('#exampleInputEmail1').val()}&password=${$('#exampleInputPassword1').val()}`
             } else {
                 alert('请检查用户名密码')
                 $('#exampleInputPassword1').val('');

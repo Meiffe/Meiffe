@@ -102,36 +102,38 @@
     <div id="header-t">
         <div class="container" id="head-left">
             <div class="col-lg-8 ">
-                <div class="col-lg-8">中国大陆暴雪授权周边商场　<a href="#"><span class="iconfont icon-laba"></span> 更多优惠周边 ></a>
+                <div class="col-lg-6">中国大陆暴雪授权周边商场　<a href="#"><span class="iconfont icon-laba"></span> 更多优惠周边 ></a>
                 </div>
-
             </div>
             <div class="col-lg-4" id="head-right">
                 <ul id="lr">
-                    <li id="login_user">　　<span class="iconfont icon-ren hidden"></span> <a href="./login.html"> 登录</a></li>
+                    <li id="login_user">　　　　　<span class="iconfont icon-ren hidden"></span> <a href="./login.html"> 登录</a></li>
+                    <li id="login_user_name" class="hidden"><a href="./login.html"> 登录</a></li>
                     <li>　|</li>
-                    <li id="login_dingdan">　<a href="./registered.html">注册</a></li>
+                    <li id="login_register">　<a href="./registered.html">注册</a></li>
+                    <li id="login_dingdan" class="hidden">　<a href="./registered.html">我的订单</a></li>
                     <li>　|</li>
-                    <li>　<a href="#">退出登录</a></li>
-                    <li>　<span class="iconfont icon-jiantoushang">　</span></li>
-                    <li>|</li>
+                    <li>　<a href="" id="exit">退出登录</a></li>
                 </ul>
-
             </div>
         </div>
     </div>
     <div id="header-m">
         <div class="container">
-            <div class="col-lg-8"><img src="./img/index_logo.png" alt=""></div>
-            <div class="col-lg-4" id="header-m-r">
-                <input placeholder="请输入搜索内容" value=""> <span class="iconfont icon-fangdajing"></span> <span class="iconfont icon-dilanxianxingiconyihuifu_huabanfuben"></span>
+            <div class="container">
+                <div class="col-lg-8"><img src="./img/index_logo.png" alt=""></div>
+                <div class="col-lg-4" id="header-m-r">
+                    <input placeholder="请输入搜索内容" value="">
+                    <a href="list.html"><span class="iconfont icon-fangdajing"></span></a>
+                    <a href="shopcart.html"><span class="iconfont icon-dilanxianxingiconyihuifu_huabanfuben"></span></a>
+                </div>
             </div>
         </div>
     </div>
     <div id="header-b">
         <div class="container">
             <ul>
-                <li>首页</li>
+                <li><a href="index.html" style="color: #cfd2d7;">首页</a></li>
                 <li>居家生活</li>
                 <li>手办模型</li>
                 <li>数码外设</li>
@@ -247,17 +249,24 @@
 <script src="./js/swiper-bundle.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script>
-    if (localStorage.getItem('login') == 1) {
+    //判断用户是否登录
+    if (localStorage.getItem('login') == 1 || localStorage.getItem('login') == 2) {
         $('#login_user>span').removeClass('hidden')
-        $('#login_user>a').html(localStorage.getItem('username'))
-        $('#login_dingdan>a').html('我的订单')
+        $('#login_dingdan').removeClass('hidden')
+        $('#login_user_name').removeClass('hidden')
+        $('#login_user>a').addClass('hidden')
+        $('#login_user_name>a').html(localStorage.getItem('username'))
+        $('#login_register').addClass('hidden')
+
     }
-    if (localStorage.getItem('login') == 2) {
-        $('#login_user>span').removeClass('hidden')
-        $('#login_user>a').html(localStorage.getItem('username'))
-        $('#login_dingdan>a').html('我的订单')
-    }
-    //取数据
+    //退出登录
+    $('#exit').click(function() {
+        localStorage.clear();
+    })
+    $('#exit').click(function() {
+            localStorage.clear();
+        })
+        //取数据
     $.get('http://jx.xuzhixiang.top/ap/api/productlist.php', {
         uid: '43413'
     }, data => {
